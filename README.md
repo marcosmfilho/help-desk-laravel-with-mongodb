@@ -26,6 +26,6 @@ Lembrando que nesse projeto já foi instalado a dependência da biblioteca jenss
 Para deixar seu servidor local rodando execute o comando:
 ```$ php artisan serve```
 
-Por default, seu servidor rodará na porta 8000, basta acessar http://localhost:8000/. Registre uma nova conta e entre na aplicaçào. Simples!
+Por default, seu servidor rodará na porta 8000, basta acessar http://localhost:8000/. Registre uma nova conta e entre na aplicação. Simples!
 
 
