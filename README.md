@@ -34,4 +34,4 @@ Por default, seu servidor rodará na porta 8000, basta acessar http://localhost:
 
 ### Imagens
 
-![alt text](https://github.com/marcosmfilho/help-desk-laravel-with-mongodb/blob/master/public/img/new-occurrence.png"Logo Title Text 1")
+![alt text](https://github.com/marcosmfilho/help-desk-laravel-with-mongodb/blob/master/public/img/new-occurrence.png "Logo Title Text 1")
