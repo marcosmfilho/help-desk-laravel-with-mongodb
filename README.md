@@ -4,6 +4,16 @@ Um simples sistema HELP DESK para uma empresa de desenvolvimento de pequeno port
 
 Observação: Existem 3 tipos de usuários, ADMIN, AGENTE E CLIENTE. Admins tem acesso a tela de usuários e podem promover usuários à clientes ou agentes. Agentes podem ver as ocorências e respondê-las. Usuários podem criar ocorrências e acompanhá-las.
 
+### Antes de tudo, vamos ver como ficou!
+
+Aplicaço em produção: http://52.55.192.194/login
+
+Usuário Admin -> email: admin@admin.com - password: admin123
+Usuário Agent -> email: agent@agent.com - password: agent123
+Usuário Client -> email: client@client.com - password: client123
+
+Você também pode criar sua conta e acessar o sistema! 
+
 ### O que foi utilizado nesse projeto?
 
   - PHP (Laravel 5.7)
