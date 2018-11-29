@@ -17,10 +17,10 @@ class UserController extends Controller
         $active = 'users';
         
         $users = User::all();
-        $admin = User::count();
-        $agent = User::count();
-        $client = User::count();
         $total = User::count();
+        $admin = User::where('is_admin', true)->count();
+        $agent = User::where('is_agent', true)->count();
+        $client = $total - ($admin + $agent);
 
         return  view('users.index',
                 compact('active', 
@@ -33,58 +33,22 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Remove the specified resource from storage.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function promoteToAdmin(Request $request)
     {
-        //
-    }
+        $params = $request->all();
+        $id = $params['id'];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
+        $user = User::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
+        $user->update(['is_admin' => true, 'is_agent' => false]);
+        
+        return redirect()->route('users.index')
+                        ->with('success','Occurrence deleted successfully');
     }
 
     /**
@@ -93,8 +57,35 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function promoteToAgent(Request $request)
     {
-        //
+        $params = $request->all();
+        $id = $params['id'];
+
+        $user = User::find($id);
+
+        $user->update(['is_agent' => true, 'is_admin' => false]);
+
+        return redirect()->route('users.index')
+                        ->with('success','Occurrence deleted successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function promoteToClient(Request $request)
+    {
+        $params = $request->all();
+        $id = $params['id'];
+
+        $user = User::find($id);
+        
+        $user->update(['is_agent' => false, 'is_admin' => false]);
+        
+        return redirect()->route('users.index')
+                        ->with('success','Occurrence deleted successfully');
     }
 }

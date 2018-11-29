@@ -88,17 +88,34 @@
                     <td>{{ date("d/m/Y H:i:s", strtotime($user->created_at))}}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->type }}</td>
+                    <td>
+                        @if ($user->is_admin == true)
+                            Admin
+                        @elseif ($user->is_agent == true)
+                            Agente
+                        @else
+                            Cliente
+                        @endif
+
+                    </td>
 
                     <td>
                             @if (Auth::user()->id !== $user->id)
-                            <div class="btn-group">
-                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" aria-expanded="false">Action <span class="caret"></span></button>
-                                <ul class="dropdown-menu" style="left: -100px!important">
-                                    <li><a href="#">Promover a Administrador</a></li>
-                                    <li><a href="#">Promover a Agente</a></li>
-                                </ul>                     
-                            </div>
+                                <div class="btn-group">
+                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" aria-expanded="false">Action <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" style="left: -100px!important">
+                                    @if ($user->is_admin == true)
+                                        <li><a href="{{ route('promoteToAgent',['id' => $user->id]) }}">Promover a Agente</a></li>
+                                        <li><a href="{{ route('promoteToClient',['id' => $user->id]) }}">Promover a Cliente</a></li>
+                                    @elseif ($user->is_agent == true)
+                                        <li><a href="{{ route('promoteToAdmin',['id' => $user->id]) }}">Promover a Administrador</a></li>
+                                        <li><a href="{{ route('promoteToClient',['id' => $user->id]) }}">Promover a Cliente</a></li>
+                                    @else
+                                        <li><a href="{{ route('promoteToAdmin',['id' => $user->id]) }}">Promover a Administrador</a></li>
+                                        <li><a href="{{ route('promoteToAgent',['id' => $user->id]) }}">Promover a Agente</a></li>
+                                    @endif
+                                    </ul>                     
+                                </div>
                             @endif
                         </div>
                     </td>

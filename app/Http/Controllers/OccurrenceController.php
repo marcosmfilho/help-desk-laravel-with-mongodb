@@ -168,8 +168,7 @@ class OccurrenceController extends Controller
     public function destroy(Occurrence $occurrence)
     {
         $occurrence->delete();
-
-
+        
         return redirect()->route('occurrences.index')
                         ->with('success','Occurrence deleted successfully');
     }

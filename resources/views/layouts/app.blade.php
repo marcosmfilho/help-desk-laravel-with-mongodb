@@ -112,12 +112,16 @@
                     <li class="{{ $active == 'home' ? 'active' : '' }}">
                         <a href="{{ route('home') }}"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
                     </li>
+                    @if (Auth::user()->is_admin == true)
                     <li class="{{ $active == 'users' ? 'active' : '' }}">
                         <a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span class="nav-label">Usuários</span></a>
                     </li>
+                    @endif
+                    @if (Auth::user()->is_admin == true || Auth::user()->is_agent == true)
                     <li  class="{{ $active == 'occurrences' ? 'active' : '' }}" >
                         <a href="{{ route('occurrences.index') }}"><i class="fa fa-bell"></i> <span class="nav-label">Ocorrências</span></a>
                     </li>
+                    @endif
                     <li class="{{ $active == 'my_occurrences' ? 'active' : '' }}"> 
                         <a href="{{ route('myOccurrences') }}"><i class="fa fa-bell"></i> <span class="nav-label">Minhas ocorrências</span></a>
                     </li>

@@ -114,7 +114,7 @@
                 </div>
         @endif
 
-        @if ($occurrence->status == App\OccurrenceStatus::UNRESOLVED)
+        @if (($occurrence->status == App\OccurrenceStatus::UNRESOLVED) && (Auth::user()->is_agent == true))
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="ibox-content">
