@@ -2,7 +2,7 @@
 
 Um simples sistema HELP DESK para uma empresa de desenvolvimento de pequeno porte. Usuários (clientes) podem se cadastrar e criar ocorrências. Os Agentes podem ver as ocorrências (que possuem prioridades e categorias) e podem resolvê-las, mudando o status e dando um feedback para o cliente. Esse pequeno sistema foi desenvolvido em Laravel 5.7, MongoDB e INSPINIA Theme no Front.
 
-Observação: Existem 3 tipos de usuários, ADMIN, AGENTE E CLIENTE. Admins tem acesso a tela de usuários e podem promover usuários à clientes ou agentes. Agentes podem ver as ocorências e respondê-las.
+Observação: Existem 3 tipos de usuários, ADMIN, AGENTE E CLIENTE. Admins tem acesso a tela de usuários e podem promover usuários à clientes ou agentes. Agentes podem ver as ocorências e respondê-las. Usuários podem criar ocorrências e acompanhá-las.
 
 ### O que foi utilizado nesse projeto?
 
