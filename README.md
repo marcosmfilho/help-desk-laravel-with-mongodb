@@ -9,7 +9,9 @@ Observação: Existem 3 tipos de usuários, ADMIN, AGENTE E CLIENTE. Admins tem 
 Aplicaço em produção: http://52.55.192.194/login
 
 Usuário Admin -> email: admin@admin.com - password: admin123
+
 Usuário Agent -> email: agent@agent.com - password: agent123
+
 Usuário Client -> email: client@client.com - password: client123
 
 Você também pode criar sua conta e acessar o sistema! 
